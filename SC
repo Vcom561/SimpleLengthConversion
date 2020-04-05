@@ -1,0 +1,118 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace ConversionApp1
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void btncalc_Click(object sender, EventArgs e)
+        {
+            double inches, feet, meters, cent, mil;
+            double InToFt, InToMet, InToCent, InToMil;
+            double MetToFt, MetToIn, MetToCent, MetToMil;
+            double FtToMet, FtToIn, FtToCen, FtToMil;
+            double CmToMet, CmToFt, CmToIn, CmToMil;
+            double MilToMet, MilToFt, MilToIn, MilToCm;
+            double ConvInput = Convert.ToDouble(usrinput.Text);
+          
+
+
+            if (rbIn.Checked == true)
+            {
+                InToFt = Math.Round((ConvInput / 12), 3);
+                InToMet = Math.Round((ConvInput / 39.37), 3);
+                InToCent = Math.Round(ConvInput * 2.54, 2);
+                InToMil = Math.Round(ConvInput * 25.4, 2);
+
+                cm.Text = InToCent.ToString() + " Centimeters";
+                mm.Text = InToMil.ToString() + " Millimeters";
+                meter.Text = InToMet.ToString() + " Meters";
+                ft.Text = InToFt.ToString() + " Feet";
+                inc.Text = ConvInput.ToString() + " Inches";
+
+                
+            }
+
+            if (rbMet.Checked == true)
+            {
+
+                MetToFt = Math.Round(ConvInput * 3, 2);
+                MetToIn = Math.Round(ConvInput * 39.37, 2);
+                MetToCent = Math.Round(ConvInput * 100, 2);
+                MetToMil = Math.Round(ConvInput * 1000, 3);
+
+                cm.Text = MetToCent.ToString() + " Centimeters";
+                mm.Text = MetToMil.ToString() + " Millimeters";
+                meter.Text = ConvInput.ToString() + " Meters";
+                ft.Text = MetToFt.ToString() + " Feet";
+                inc.Text = MetToIn.ToString() + " Inches";
+            }
+
+            if(rbFt.Checked == true)
+            {
+                FtToMet = Math.Round(ConvInput / 3, 3);
+                FtToIn = Math.Round(ConvInput * 12, 3);
+                FtToCen = Math.Round(ConvInput * 30.48, 3);
+                FtToMil = Math.Round(ConvInput * 304.8, 3);
+
+
+                cm.Text = FtToCen.ToString() + " Centimeters";
+                mm.Text = FtToMil.ToString() + " Millimeters";
+                meter.Text = FtToMet.ToString() + " Meters";
+                ft.Text = ConvInput.ToString() + " Feet";
+                inc.Text = FtToIn.ToString() + " Inches";
+
+
+            }
+
+            if(rbCm.Checked == true)
+            {
+                CmToMet = Math.Round(ConvInput / 100, 3);
+                CmToFt = Math.Round(ConvInput / 30.48, 3);
+                CmToIn = Math.Round(ConvInput / 2.54, 3);
+                CmToMil = Math.Round(ConvInput * 10, 3);
+
+
+                cm.Text = ConvInput.ToString() + " Centimeters";
+                mm.Text = CmToMil.ToString() + " Millimeters";
+                meter.Text = CmToMet.ToString() + " Meters";
+                ft.Text = CmToFt.ToString() + " Feet";
+                inc.Text = CmToIn.ToString() + " Inches";
+
+
+
+            }
+
+            if(rbMil.Checked == true)
+            {
+                MilToMet = Math.Round(ConvInput / 1000, 3);
+                MilToFt = Math.Round(ConvInput / 304.8, 3);
+                MilToIn = Math.Round(ConvInput / 25.4, 3);
+                MilToCm = Math.Round(ConvInput / 10, 2);
+
+                cm.Text = MilToCm.ToString() + " Centimeters";
+                mm.Text = ConvInput.ToString() + " Millimeters";
+                meter.Text = MilToMet.ToString() + " Meters";
+                ft.Text = MilToFt.ToString() + " Feet";
+                inc.Text = MilToIn.ToString() + " Inches";
+
+            }
+            }
+            
+           
+
+          
+        }
+    }
